@@ -1,0 +1,33 @@
+@hostname=127.0.0.1:8080
+#@hostname=ali.117503445.top:8080
+#@hostname=tokyo.117503445.top:8080
+
+
+GET http://{{hostname}}/api/record
+Content-Type: application/json
+
+###
+GET http://{{hostname}}/api/record/221
+Content-Type: application/json
+
+###
+DELETE http://{{hostname}}/api/record
+Content-Type: application/json
+###
+POST http://{{hostname}}/api/record
+Content-Type: application/json
+
+https://github.com/pawelsalawa/sqlitestudio/releases/download/3.2.1/InstallSQLiteStudio-3.2.1
+###
+POST http://{{hostname}}/api/record
+Content-Type: application/json
+
+https://github.com/pawelsalawa/sqlitestudio/archive/master.zip
+###
+POST http://{{hostname}}/api/record
+Content-Type: application/json
+
+https://github.com/2dust/v2rayN/archive/master.zip
+###
+GET http://{{hostname}}/api/record/callback
+Content-Type: application/json
