@@ -55,8 +55,16 @@ public class RecordController {
         json.put(PullingHandler.Params.URL, url);
 
         var strings = url.split("/");
-        var filename = TimeHelper.getTimeString() + strings[strings.length - 1];
+        var filename = strings[strings.length - 1];
+        if (url.contains("github.com") && filename.equals("master.zip")) {
+            filename = strings[strings.length - 3] + "-" + strings[strings.length - 1];
+        }
+        //https://github.com/pawelsalawa/sqlitestudio/archive/master.zip
+        //->
+        //sqlitestudio-master.zip
+
         System.out.println(filename);
+
         json.put(PullingHandler.Params.SAVE_AS, filename);
 
         array.put(json);
