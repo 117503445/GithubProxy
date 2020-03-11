@@ -38,6 +38,8 @@ public class RecordController {
     private String operatorPassword;
     @Value("${up.callbackURL}")
     private String callbackURL;
+    @Value("${app.downloadAllKey}")
+    private String downloadAllKey;
 
     private String upYunRemoteDownload(String url) throws Exception {
 
@@ -109,9 +111,13 @@ public class RecordController {
 
     @PostMapping(path = "", produces = "application/json")
     public @ResponseBody
-    ResponseEntity<?> createRecord(@RequestBody String url) throws Exception {
-        if (!url.contains("https://github.com/")) {
-            return new ResponseEntity<>("{\"message\":\"Not contains github\"}", HttpStatus.BAD_REQUEST);
+    ResponseEntity<?> createRecord(@RequestBody String url, @RequestParam Optional<String> key) throws Exception {
+        if (key.isEmpty()) {
+            if (!url.contains("https://github.com/")) {
+                return new ResponseEntity<>("{\"message\":\"Not contains github\"}", HttpStatus.BAD_REQUEST);
+            }
+        } else if (!key.get().equals(downloadAllKey)) {
+            return new ResponseEntity<>("{\"message\":\"Key Wrong\"}", HttpStatus.BAD_REQUEST);
         }
         if (url.contains(".git")) {
             url = url.replace(".git", "/archive/master.zip");

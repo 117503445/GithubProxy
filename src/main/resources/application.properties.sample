@@ -8,3 +8,4 @@ up.bucket={{bucket}}
 up.operator.name={{operatorname}}
 up.operator.password={{operatorpassword}}
 up.callbackURL=https://{{Your backend server's host name}}/api/record/callback
+app.downloadAllKey=your Key To Allow all download,not only github

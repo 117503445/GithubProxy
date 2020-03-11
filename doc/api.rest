@@ -1,33 +1,37 @@
 @hostname=127.0.0.1:8080
 #@hostname=ali.117503445.top:8080
 #@hostname=tokyo.117503445.top:8080
+#@hostname=githubproxy.backend.117503445.top
+@protocol=http
+#@protocol=https
 
-
-GET http://{{hostname}}/api/record
+GET {{protocol}}://{{hostname}}/api/record
 Content-Type: application/json
 
 ###
-GET http://{{hostname}}/api/record/221
+GET {{protocol}}://{{hostname}}/api/record/221
 Content-Type: application/json
 
 ###
-DELETE http://{{hostname}}/api/record
+DELETE {{protocol}}://{{hostname}}/api/record
 Content-Type: application/json
 ###
-POST http://{{hostname}}/api/record
+POST {{protocol}}://{{hostname}}/api/record
 Content-Type: application/json
 
 https://github.com/pawelsalawa/sqlitestudio/releases/download/3.2.1/InstallSQLiteStudio-3.2.1
 ###
-POST http://{{hostname}}/api/record
+POST {{protocol}}://{{hostname}}/api/record
 Content-Type: application/json
 
 https://github.com/pawelsalawa/sqlitestudio/archive/master.zip
 ###
-POST http://{{hostname}}/api/record
+POST {{protocol}}://{{hostname}}/api/record
 Content-Type: application/json
 
 https://github.com/2dust/v2rayN/archive/master.zip
 ###
-GET http://{{hostname}}/api/record/callback
+POST {{protocol}}://{{hostname}}/api/record?key=123456
 Content-Type: application/json
+
+https://www.baidu.com
